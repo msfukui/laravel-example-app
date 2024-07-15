@@ -25,7 +25,7 @@ serve:
 
 .PHONY: test
 test:
-	@echo "Running tests.."
+	-@sudo docker compose exec dev php artisan test
 
 .PHONY: analyze
 analyze:
