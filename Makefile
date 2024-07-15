@@ -27,6 +27,14 @@ serve:
 test:
 	-@sudo docker compose exec dev php artisan test
 
+.PHONY: test-coverage
+test-coverage:
+	-@sudo docker compose exec dev php artisan test --coverage
+
+.PHONY: test-profile
+test-profile:
+	-@sudo docker compose exec dev php artisan test --profile
+
 .PHONY: analyze
 analyze:
 	@echo "Running analyze.."

@@ -8,6 +8,11 @@ services:
       - PHP_CS_FIXER_IGNORE_ENV=1
     tty: true
     volumes:
-      - .:/app
+      - type: bind
+        source: .
+        target: /app
+      - type: bind
+        source: ./php.ini-development
+        target: /usr/local/etc/php/php.ini
     ports:
       - "8123:8123"
