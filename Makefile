@@ -2,10 +2,22 @@
 version:
 	@echo "[Composer]"
 	@echo ""
-	-@sudo docker compose exec dev composer diagnose
+	-@sudo docker compose exec dev composer --version
 	@echo ""
 	@echo "[Laravel]"
 	-@sudo docker compose exec dev php artisan about
+
+.PHONY: build-up
+build-up:
+	-@sudo docker compose up -d --build
+
+.PHONY: up
+up:
+	-@sudo docker compose up -d
+
+.PHONY: down
+down:
+	-@sudo docker compose down
 
 .PHONY: serve
 serve:
