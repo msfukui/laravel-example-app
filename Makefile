@@ -2,38 +2,38 @@
 version:
 	@echo "[Composer]"
 	@echo ""
-	-@sudo docker compose exec dev composer --version
+	-@docker compose exec dev composer --version
 	@echo ""
 	@echo "[Laravel]"
-	-@sudo docker compose exec dev php artisan about
+	-@docker compose exec dev php artisan about
 
 .PHONY: build-up
 build-up:
-	-@sudo docker compose up -d --build
+	-@docker compose up -d --build
 
 .PHONY: up
 up:
-	-@sudo docker compose up -d
+	-@docker compose up -d
 
 .PHONY: down
 down:
-	-@sudo docker compose down
+	-@docker compose down
 
 .PHONY: serve
 serve:
-	-@sudo docker compose exec dev php artisan serve --port=8123 --host=0.0.0.0
+	-@docker compose exec dev php artisan serve --port=8123 --host=0.0.0.0
 
 .PHONY: test
 test:
-	-@sudo docker compose exec dev php artisan test
+	-@docker compose exec dev php artisan test
 
 .PHONY: test-coverage
 test-coverage:
-	-@sudo docker compose exec dev php artisan test --coverage
+	-@docker compose exec dev php artisan test --coverage
 
 .PHONY: test-profile
 test-profile:
-	-@sudo docker compose exec dev php artisan test --profile
+	-@docker compose exec dev php artisan test --profile
 
 .PHONY: analyze
 analyze:
