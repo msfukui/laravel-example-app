@@ -1,8 +1,8 @@
 services:
   dev:
     build: .
-    image: php8.3-cli
-    container_name: php8.3-cli-debug
+    image: php8.4-cli
+    container_name: php8.4-laravel-cli-dev
     command: bash -c "composer install && /bin/bash"
     environment:
       - PHP_CS_FIXER_IGNORE_ENV=1
