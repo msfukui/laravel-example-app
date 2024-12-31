@@ -15,4 +15,4 @@ services:
         source: ./php.ini-development
         target: /usr/local/etc/php/php.ini
     ports:
-      - "8123:8123"
+      - "8456:8456"

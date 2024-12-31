@@ -19,9 +19,17 @@ up:
 down:
 	-@docker compose down
 
+.PHONY: key-generate
+key-generate:
+	-@docker compose exec dev php artisan key:generate
+
+.PHONY: migrate
+migrate:
+	-@docker compose exec dev php artisan migrate
+
 .PHONY: serve
 serve:
-	-@docker compose exec dev php artisan serve --port=8123 --host=0.0.0.0
+	-@docker compose exec dev php artisan serve --port=8456 --host=0.0.0.0
 
 .PHONY: test
 test:
