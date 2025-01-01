@@ -16,3 +16,4 @@ services:
         target: /usr/local/etc/php/php.ini
     ports:
       - "8456:8456"
+      - "23306:3306"
