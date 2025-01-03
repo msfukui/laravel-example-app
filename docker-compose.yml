@@ -1,19 +1,31 @@
 services:
-  dev:
-    build: .
-    image: php8.4-cli
-    container_name: php8.4-laravel-cli-dev
-    command: bash -c "composer install && /bin/bash"
-    environment:
-      - PHP_CS_FIXER_IGNORE_ENV=1
-    tty: true
-    volumes:
-      - type: bind
-        source: .
-        target: /app
-      - type: bind
-        source: ./php.ini-development
-        target: /usr/local/etc/php/php.ini
-    ports:
-      - "8456:8456"
-      - "23306:3306"
+    dev:
+        build: .
+        image: php8.4-cli
+        container_name: php8.4-laravel-cli-dev
+        command: bash -c "composer install && /bin/bash"
+        environment:
+            - PHP_CS_FIXER_IGNORE_ENV=1
+        tty: true
+        volumes:
+            -   type: bind
+                source: .
+                target: /app
+            -   type: bind
+                source: ./php.ini-development
+                target: /usr/local/etc/php/php.ini
+        ports:
+            - "8456:8456"
+            - "23306:3306"
+    mail:
+        image: mailhog/mailhog
+        container_name: mailhog
+        ports:
+            - "8025:8025"
+        environment:
+            MH_STORAGE: maildir
+            MH_MAILDIR_PATH: /tmp
+        volumes:
+            -   type: bind
+                source: maildir
+                target: /tmp
